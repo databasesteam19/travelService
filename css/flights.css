@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  height: 20%;
+  width: 100%;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
+}
+main {
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.row {
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-content: center;
+  display: inline-block;
+  text-align: center;
+}
+
+#top-row {
+  height: 20%;
+}
+
+#middle-row {
+  height: 80%;
+}
+
+.site-title {
+  text-align: center;
+  font-size: 56px;
+}
+
+#flight-picker-form {
+  margin-top: 0px;
+  margin-bottom: 5vh;
+}
