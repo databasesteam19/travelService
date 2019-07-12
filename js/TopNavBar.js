@@ -11,10 +11,15 @@ class TopNavBar extends HTMLElement {
     li_home.setAttribute("href", "./flights.html");
     li_home.innerHTML = "Flights";
     nav.appendChild(li_home);
+    //Customer Registration
+    const li_reg = document.createElement("a");
+    li_reg.setAttribute("href", "./reg.html");
+    li_reg.innerHTML = "Customer Registration";
+    nav.appendChild(li_reg);
     //Representative Login
     const li_repLogin = document.createElement("a");
     li_repLogin.setAttribute("href", "./repLogin.html");
-    li_repLogin.innerHTML = "Representative Login";
+    li_repLogin.innerHTML = "Login";
     nav.appendChild(li_repLogin);
 
     const style = document.createElement("style");

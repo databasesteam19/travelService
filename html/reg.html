@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login</title>
+    <title>Customer Registration</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="/css/repLogin.css" />
     <script src="/js/TopNavBar.js"></script>
@@ -9,7 +9,7 @@
   <body>
     <header>
       <top-navbar></top-navbar>
-      <h1 class="site-title">Login</h1>
+      <h1 class="site-title">Customer Registration</h1>
     </header>
     <main>
       <div class="row" id="top-row">
@@ -27,6 +27,20 @@
             id="password"
             placeholder="password"
             name="password"
+          />
+          <label for="first-name">First Name:</label>
+          <input
+            type="text"
+            id="first-name"
+            placeholder="first name"
+            name="first-name"
+          />
+          <label for="first-name">Last Name:</label>
+          <input
+            type="text"
+            id="last-name"
+            placeholder="last name"
+            name="last-name"
           />
           <button type="login">Login</button>
         </form>
