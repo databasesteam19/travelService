@@ -41,7 +41,6 @@ create table if not exists customers (
 );
 create table if not exists employee (
 	employee_id char (8) not null,
-    password varchar (45),
     primary key	(employee_id)
 );
 create table if not exists admin (
@@ -86,6 +85,7 @@ create table if not exists valid(
 create table if not exists arrive_at (
 	flight_num char(6)not null,
     airport_id char(3) not null,
+    arrival_time date,
     primary key (airport_id,flight_num),
     foreign key(airport_id) references airports (airport_id) on update cascade on delete cascade,
     foreign key(flight_num) references flights (flight_num) on update cascade on delete cascade
@@ -93,6 +93,7 @@ create table if not exists arrive_at (
 create table if not exists depart_from(
 	flight_num char(6) not null,
     airport_id char(3) not null,
+    departure_time date,
     primary key (airport_id,flight_num),
     foreign key(airport_id) references airports (airport_id) on update cascade on delete cascade,
     foreign key(flight_num) references flights (flight_num) on update cascade on delete cascade
