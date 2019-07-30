@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <!--To turn this viual in to a fucntional jsp check out: https://stackoverflow.com/questions/18997285/how-to-display-a-database-table-on-to-the-table-in-the-jsp-page-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Customer Home</title>
+    </head>
+    <style>
+        th,td{
+            padding: 15px;
+        }
+        td{
+            background-color: aliceblue;
+        }
+        div{
+            padding-top: 15px;
+        }
+    </style>
+    <body>
+        <header><h1>Welcome Customer</h1></header>
+        <main>
+            <div class="flights">
+                <table class="flight-table">
+                    <tr>
+                        <th>Flight No.</th>
+                        <th>Departing From</th>
+                        <th>Departure Time</th>
+                        <th>Arriving To</th>
+                        <th>Arrival Time</th>
+                        <th>Airline</th>
+                        <th>Aircraft</th>
+                        <th>Edit Reservation</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>EWR</td>
+                        <td>7:00</td>
+                        <td>ORD</td>
+                        <td>10:00</td>
+                        <td>United Airlines</td>
+                        <td>B737</td>
+                        <td><button>Cancel</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="customer-tools">
+                <button>Make a Reservation</button>
+                <button>Logout</button>
+            </div>
+        </main>
+    </body>
+</html>
