@@ -7,4 +7,4 @@ select u.flight_num, a.num_seats, count(b.ticket_unique_num) customer_num from a
     group by a.aircraft_registration having count(b.ticket_unique_num) >  a.num_seats;
     
  //Insert a customer into a the waitlist of the flight they are trying to get
-  insert into is_has_waiting_list(flight_num, customer_id) values ("flight number trying to get in", "customer id got from customer input");
+  insert into is_has_waiting_list(flight_num, customer_id,order_day_and_time) values ("flight number trying to get in", "customer id got from customer input",now());
