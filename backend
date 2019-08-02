@@ -1,0 +1,10 @@
+
+
+//gets the list of full flights
+select u.flight_num, a.num_seats, count(b.ticket_unique_num) customer_num from aircrafts a, buys b, valid v, uses u 
+	where b.ticket_unique_num = v.ticket_unique_num 
+	and u.flight_num = v.flight_num and a.aircraft_registration= u.aircraft_registration
+    group by a.aircraft_registration having count(b.ticket_unique_num) >  a.num_seats;
+    
+ //Insert a customer into a the waitlist of the flight they are trying to get
+  insert into is_has_waiting_list(flight_num, customer_id) values ("flight number trying to get in", "customer id got from customer input");
