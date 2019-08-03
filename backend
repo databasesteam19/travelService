@@ -8,3 +8,8 @@ select u.flight_num, a.num_seats, count(b.ticket_unique_num) customer_num from a
     
  //Insert a customer into a the waitlist of the flight they are trying to get
   insert into is_has_waiting_list(flight_num, customer_id,order_day_and_time) values ("flight number trying to get in", "customer id got from customer input",now());
+
+
+//after a customer buys a ticket
+insert into buys value("customer_id", "ticket_unique_num","price of the ticket",now(),now() );
+insert into valid("flight_num","ticket_unique_num");
