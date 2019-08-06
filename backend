@@ -57,5 +57,9 @@ String insertIntoFlight ="insert into flights  values (?,?,?,?,?, ?,?,?)";
 // Admin cancel flight 
 delete flights from flights where flight_num =?"
 
-
-		
+// Getting the flight operation at a given airport
+select a.airport_id, f.flight_num,f.destination_boundary, f.days,
+  de.depature_time, ar.arrival_time, r.aircraft_registration,r.name, i.airline_id, i.name
+from airports a, depart_from de, arrive_at ar, flights f, Airlines i, via v, uses u, aircrafts r
+where de.flight_num= f.flight_num and ar.flight_num= f.flight_num and de.airport_id=a.airport_id and
+ v.flight_num=f.flight_num and i.airline_id=v.airline_id and u.flight_num= f.flight_num and u.aircraft_registration = r.aircraft_registration
