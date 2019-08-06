@@ -28,14 +28,17 @@ String airport_id = request.getParameter("airport_id");
 String days = request.getParameter("days");
 String boundary = request.getParameter("destination_boundary");
 String flighttype = request.getParameter("flight_type");
-String arrival_time = request.getParameter("arrival_time");
-String departure_time = request.getParameter("departure_time");
+String arrival_time = request.getParameter("arrival_date_time");
+String departure_time = request.getParameter("departure_date_time");
 String departure_airport = request.getParameter("departure_airport");
 String arrival_airport = request.getParameter("arrival_airport");
 
-String insertIntoFlight ="insert into flights  values (?,?,?,?,?, ?,?,?)";
+String insertIntoFlight ="insert into flights  values (?,?,?,?,?,?)";
 	String insertIntoUses = "insert into uses values  (?,?)";
 	String insertIntoVia = "insert into via values (?,?)";
+	String insertIntoDepart = "insert into depart_from values (?,?,?)";
+	String insertIntoArrive = "insert into  values (?,?,?)";
+	
 	Connection conn = DBConnection.getConnection();
 	try {
 		PreparedStatement p = conn.prepareStatement(insertIntoFlight);
@@ -43,18 +46,23 @@ String insertIntoFlight ="insert into flights  values (?,?,?,?,?, ?,?,?)";
 		p.setString(2, days);
 		p.setString(3, boundary);
 		p.setString(4, flighttype);
-		p.setString(5, arrival_time);
-		p.setString(6, departure_time);
-		p.setString(7, departure_airport);
-		p.setString(8, arrival_airport);
+		p.setString(5, departure_airport);
+		p.setString(6, arrival_airport);
 	
 		conn.prepareStatement(insertIntoUses);
 		p.setString(1,aircraft_registration );
 		p.setString(2, flight_num);
 	
-		conn.prepareStatement(insertIntoUses);
-		p.setString(1,airline_id );
-		p.setString(2, flight_num);
+		conn.prepareStatement(insertIntoDepart);
+		p.setString(1,flight_num);
+		p.setString(2,airline_id );
+		p.setString(3, departure_time);
+		
+		conn.prepareStatement(insertIntoArrive);
+		p.setString(1,flight_num );
+		p.setString(2,airline_id);
+		p.setString(3,arrival_time);
+	
 // Admin cancel flight 
 delete flights from flights where flight_num =?"
 
