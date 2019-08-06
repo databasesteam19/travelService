@@ -10,6 +10,52 @@ select u.flight_num, a.num_seats, count(b.ticket_unique_num) customer_num from a
   insert into is_has_waiting_list(flight_num, customer_id,order_day_and_time) values ("flight number trying to get in", "customer id got from customer input",now());
 
 
-//after a customer buys a ticket
-insert into buys value("customer_id", "ticket_unique_num","price of the ticket",now(),now() );
-insert into valid("flight_num","ticket_unique_num");
+//get all of the reservation from a given customer
+select c.customer_id ,t.ticket_unique_num,f.flight_num, b.purchase_date,b.purchase_time, b.booking_fees,t.fare, t.class,t.seat_number,
+  f.departing_airport,f.arriving_airport,f.departure_date, f.departure_time, f.arrival_date, f.arrival_time
+   from customers c, buys b,valid v, flight_tickets t, flights f
+   where b.customer_id= c.customer_id and b.ticket_unique_num=v.ticket_unique_num and b.ticket_unique_num=t.ticket_unique_num
+   and t.ticket_unique_num=v.ticket_unique_num and v.flight_num=f.flight_num and c.customer_id="?";
+   
+// Admin add a flight
+
+String flight_num = request.getParameter("flight_num");
+String airline_id = request.getParameter("airline_id");
+String aircraft_registration = request.getParameter("aircraft_registration");
+String airport_id = request.getParameter("airport_id");
+
+String days = request.getParameter("days");
+String boundary = request.getParameter("destination_boundary");
+String flighttype = request.getParameter("flight_type");
+String arrival_time = request.getParameter("arrival_time");
+String departure_time = request.getParameter("departure_time");
+String departure_airport = request.getParameter("departure_airport");
+String arrival_airport = request.getParameter("arrival_airport");
+
+String insertIntoFlight ="insert into flights  values (?,?,?,?,?, ?,?,?)";
+	String insertIntoUses = "insert into uses values  (?,?)";
+	String insertIntoVia = "insert into via values (?,?)";
+	Connection conn = DBConnection.getConnection();
+	try {
+		PreparedStatement p = conn.prepareStatement(insertIntoFlight);
+		p.setString(1, flight_num);
+		p.setString(2, days);
+		p.setString(3, boundary);
+		p.setString(4, flighttype);
+		p.setString(5, arrival_time);
+		p.setString(6, departure_time);
+		p.setString(7, departure_airport);
+		p.setString(8, arrival_airport);
+	
+		conn.prepareStatement(insertIntoUses);
+		p.setString(1,aircraft_registration );
+		p.setString(2, flight_num);
+	
+		conn.prepareStatement(insertIntoUses);
+		p.setString(1,airline_id );
+		p.setString(2, flight_num);
+// Admin cancel flight 
+delete flights from flights where flight_num =?"
+
+
+		
