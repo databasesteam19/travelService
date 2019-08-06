@@ -12,10 +12,11 @@ select u.flight_num, a.num_seats, count(b.ticket_unique_num) customer_num from a
 
 //get all of the reservation from a given customer
 select c.customer_id ,t.ticket_unique_num,f.flight_num, b.purchase_date,b.purchase_time, b.booking_fees,t.fare, t.class,t.seat_number,
-  f.departing_airport,f.arriving_airport,f.departure_date, f.departure_time, f.arrival_date, f.arrival_time
-   from customers c, buys b,valid v, flight_tickets t, flights f
+  f.departing_airport,f.arriving_airport,de.depature_time, ar.arrival_time
+  from customers c, buys b,valid v, flight_tickets t, flights f,arrive_at ar,depart_from de
    where b.customer_id= c.customer_id and b.ticket_unique_num=v.ticket_unique_num and b.ticket_unique_num=t.ticket_unique_num
-   and t.ticket_unique_num=v.ticket_unique_num and v.flight_num=f.flight_num and c.customer_id="?";
+   and t.ticket_unique_num=v.ticket_unique_num and v.flight_num=f.flight_num and ar.flight_num= f.flight_num and de.flight_num=f.flight_num and
+   c.customer_id="?";
    
 // Admin add a flight
 
@@ -59,7 +60,7 @@ delete flights from flights where flight_num =?"
 
 // Getting the flight operation at a given airport
 select a.airport_id, f.flight_num,f.destination_boundary, f.days,
-  de.depature_time, ar.arrival_time, r.aircraft_registration,r.name, i.airline_id, i.name
+f.departing_airport, de.depature_time, f.arriving_airport, ar.arrival_time, r.aircraft_registration,r.name, i.airline_id, i.name
 from airports a, depart_from de, arrive_at ar, flights f, Airlines i, via v, uses u, aircrafts r
 where de.flight_num= f.flight_num and ar.flight_num= f.flight_num and de.airport_id=a.airport_id and
  v.flight_num=f.flight_num and i.airline_id=v.airline_id and u.flight_num= f.flight_num and u.aircraft_registration = r.aircraft_registration
