@@ -1,0 +1,2 @@
+select customer_id from is_has_waiting_list;
+insert into is_has_waiting_list values (12,3)
