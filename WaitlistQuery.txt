@@ -1,0 +1,3 @@
+select exists(select u.flight_num, u.num_seats, count(b.ticket_unique_num) customer_num from valid b, aircrafts u 
+	where u.flight_num = b.flight_num 
+    group by u.aircraft_registration having count(b.ticket_unique_num) >  u.num_seats) as isfull;
