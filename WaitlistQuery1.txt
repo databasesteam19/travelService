@@ -1,2 +1,2 @@
 select customer_id from is_has_waiting_list where flight_num =?;
-insert into is_has_waiting_list values (12,3)
+insert into is_has_waiting_list values (?,?)
