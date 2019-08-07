@@ -72,3 +72,8 @@ f.departing_airport, de.depature_time, f.arriving_airport, ar.arrival_time, r.ai
 from airports a, depart_from de, arrive_at ar, flights f, Airlines i, via v, uses u, aircrafts r
 where de.flight_num= f.flight_num and ar.flight_num= f.flight_num and de.airport_id=a.airport_id and
  v.flight_num=f.flight_num and i.airline_id=v.airline_id and u.flight_num= f.flight_num and u.aircraft_registration = r.aircraft_registration
+ 
+ //gets flight with the most ticket sold
+ select numb.active from ( SELECT v.flight_num as active,COUNT(v.flight_num) mycount 
+FROM valid v
+GROUP BY v.flight_num order by mycount desc) as numb limit 1;
