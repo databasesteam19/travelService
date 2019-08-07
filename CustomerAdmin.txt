@@ -1,0 +1,5 @@
+This prints out the customer id and thier total purchases
+Was not able to print the max purchas and customer_id together 	
+select tab.customer_id,MAX(city_salary) MostPurchases 
+		from (select customer_id, SUM(booking_fees)city_salary 
+		  from buys group by customer_id) tab group by tab.customer_id;
