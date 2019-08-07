@@ -1,3 +1,4 @@
+-Find outwhich customer generated most total revenue
 This prints out the customer id and thier total purchases
 Was not able to print the max purchas and customer_id together 	
 select tab.customer_id,MAX(city_salary) MostPurchases 
