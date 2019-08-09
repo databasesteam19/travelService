@@ -39,7 +39,7 @@ Our program have three type of users: an Admin, a customer representative and a 
 customers 
 They can make reservation for flights. However, if a the number of tickets bought for a particular flight is greater than the 
 capacity of the aircraft used for that particular flight, it will ask the user wether they want to go to waiting list. If choose to 
-go to the waiting list, they get added to the waiting list of that flight otherwise, they have to go back and look for other flight. They can look for flight wether it is a one-way, a round-trip flight and filter by take-off time, landing-time, price,and airline. They can also view both past reservation and upcoming reservations.
+go to the waiting list, they get added to the waiting list of that flight otherwise, they have to go back and look for other flight. They can look for flight wether it is a one-way, a round-trip flight, short it by take-off time, landing-time,and price,and  filter it  by price and airlines airline. They can also view both past reservation and upcoming reservations.
 
 Customer representatives
 Besides having all of the functionality of the customer type, they can  make reservation for a given customer. They can also add, edit, delete information for aircrafts, airports and flights and retrieve waiting list of a particular flight.
