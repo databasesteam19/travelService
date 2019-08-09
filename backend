@@ -77,3 +77,11 @@ where de.flight_num= f.flight_num and ar.flight_num= f.flight_num and de.airport
  select numb.active from ( SELECT v.flight_num as active,COUNT(v.flight_num) mycount 
 FROM valid v
 GROUP BY v.flight_num order by mycount desc) as numb limit 1;
+
+
+//Add,edit and delete aircraft
+insert into aircrafts values ("aircraft_registration",num_seats,"type","name");
+delete from aircrafts where aircraft_registration ="?";
+
+UPDATE aircrafts SET aircraft_registration = 'new aircraft_registration',num_seats = 'new number of seats' ,type = 'new type',
+ name = 'new name'  WHERE aircraft_registration = ?;
